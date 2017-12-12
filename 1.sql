@@ -394,7 +394,7 @@ INSERT INTO CCI_REPORT_SYSTEM_CTL
    RSV_06,
    CTL_BUSI_DATE)
   SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') || '0340000' || B.ORGCODE ||
-         LPAD(ID, 6, '0'), --上报报文系统控制号
+         LPAD(B.ID, 6, '0'), --上报报文系统控制号
          REPLACE(B.RPTDATE, '-'), --上报日期
          '', --上报批次号
          B.TRACENO, --信息记录跟踪编号
@@ -661,7 +661,7 @@ INSERT INTO CCI_REPORT_SYSTEM_CTL
    RSV_06,
    CTL_BUSI_DATE)
   SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') || '0350000' || B.ORGCODE ||
-         LPAD(ID, 6, '0'), --上报报文系统控制号
+         LPAD(B.ID, 6, '0'), --上报报文系统控制号
          REPLACE(B.RPTDATE, '-'), --上报日期
          '', --上报批次号
          B.TRACENO, --信息记录跟踪编号
@@ -795,7 +795,7 @@ INSERT INTO CCI_REPORT_SYSTEM_CTL
    RSV_06,
    CTL_BUSI_DATE)
   SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') || '0370000' || B.ORGCODE ||
-         LPAD(ID, 6, '0'), --上报报文系统控制号
+         LPAD(C.ID, 6, '0'), --上报报文系统控制号
          REPLACE(B.RPTDATE, '-'), --上报日期
          '', --上报批次号
          B.TRACENO, --信息记录跟踪编号
@@ -933,7 +933,7 @@ INSERT INTO CCI_REPORT_SYSTEM_CTL
    RSV_06,
    CTL_BUSI_DATE)
   SELECT TO_CHAR(SYSDATE, 'YYYYMMDD') || '0430000' || B.ORGCODE ||
-         LPAD(ID, 6, '0'), --上报报文系统控制号
+         LPAD(C.ID, 6, '0'), --上报报文系统控制号
          REPLACE(B.RPTDATE, '-'), --上报日期
          '', --上报批次号
          B.TRACENO, --信息记录跟踪编号
