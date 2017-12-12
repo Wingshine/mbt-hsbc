@@ -177,7 +177,6 @@ INSERT INTO CCI_ORGINFO_BASIC
          '',
          '',
          '',
-         '',
          CERTIFY_CODE,
          REGIST_TYPE,
          REGIST_CODE,
