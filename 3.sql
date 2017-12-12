@@ -1,8 +1,1 @@
-UPDATE CCI_CONTRACT_INFO
-   SET CUSTOMER_CODE = T.CUSTOMER_CODE
-  FROM (SELECT MAX(CUSTOMER_CODE), LOAN_CARD_NO
-  		FROM CCI_ORGINFO_BASIC
- 		GROUP BY LOAN_CARD_NO) T
-  WHERE EXISTS (
-		SELECT 1 FROM T
-		WHERE T.LOAN_CARD_NO = CCI_CONTRACT_INFO.LOAN_CARD_NO);
+UPDATE CCI_CONTRACT_INFO a   SET a.CUSTOMER_CODE =       (select t.CUSTOMER_CODE          from (SELECT CUSTOMER_CODE,                       LOAN_CARD_NO,                       row_number() over(partition by LOAN_CARD_NO order by CUSTOMER_CODE) rn                  FROM CCI_ORGINFO_BASIC) t         where t.rn = 1           and a.loan_card_no = t.loan_card_no) where exists (select 1          from (SELECT CUSTOMER_CODE,                       LOAN_CARD_NO,                       row_number() over(partition by LOAN_CARD_NO order by CUSTOMER_CODE) rn                  FROM CCI_ORGINFO_BASIC) t         where t.rn = 1           and a.loan_card_no = t.loan_card_no);
